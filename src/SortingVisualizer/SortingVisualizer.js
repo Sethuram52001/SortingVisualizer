@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { generateArray } from '../redux/actions';
 
 class SortingVisualizer extends Component {
-    state = { 
-        array: []
-     }
+    
 
     componentDidMount() {
-        console.log(this.randomIntFromInterval(1,5))
+        console.log("props:"+this.props.array)
     }
 
     generateArray = () => {
-        let array = [];
-        for(let i=0;i<10;i++) {
-            array.push(this.randomIntFromInterval(20,300))
-        }
-        this.setState({
-            array
-        })
-        console.log(this.state.array)
+        console.log(this.props.array);
+        this.props.dispatch(generateArray());
     }
 
     render() { 
 
-        const array = this.state.array;
+        const array = this.props.array;
         return ( 
             <div>
                 <h1>Sorting Visualizer</h1>
@@ -35,11 +29,6 @@ class SortingVisualizer extends Component {
             </div>
          );
     }
-
-    // random number generator
-    randomIntFromInterval = (min, max) => {
-        return Math.floor(Math.random()*(max-min+1)+min);
-    }
 }
  
-export default SortingVisualizer;
+export default connect()(SortingVisualizer);
