@@ -2,11 +2,12 @@
   background-color: white;
   position: absolute;
   left: 50px;
+  /*max-width: 900px;
+  min-width: 900px;*/
 }
 
 .array-bar {
   /*width: 35px;*/
   display: inline-block;
-  margin: 0 1px;
-  color: white;
+  margin: 5px 1px;
 }

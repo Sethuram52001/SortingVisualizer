@@ -22,6 +22,7 @@ class SortingVisualizer extends Component {
 
         const width = Math.floor(document.body.clientWidth / (this.props.array.length * 2.5));
         const array = this.props.array;
+        const color = array.length < 15 ? "white" : "transparent";
 
         return ( 
             <div>
@@ -29,9 +30,9 @@ class SortingVisualizer extends Component {
                 <button onClick={this.generateArray}>generate array</button>
                 <div className="array-container">
                     {array.map((value, index) => (
-                        <div className="array-bar" key={index} style={{backgroundColor: "red", height: `${value}px`, width: `${width}px`}}>{value}</div>
+                        <div className="array-bar" key={index} style={{backgroundColor: "red", height: `${value*1.3}px`, width: `${width}px`, color: color}}>{value}</div>
                     ))}
-                </div>
+                    </div>
             </div>
          );
     }

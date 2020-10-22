@@ -12,7 +12,7 @@ class Slider extends Component {
     render() { 
         return ( 
             <div>
-                <input type="range" min="0" max="100" id="changeSize" onChange={this.getSize} style={{background: "white", cursor: "pointer"}}></input>
+                <input type="range" min="4" max="150" id="changeSize" onChange={this.getSize} style={{background: "white", cursor: "pointer"}}></input>
             </div>
          );
     }
