@@ -6,24 +6,30 @@ class SortingVisualizer extends Component {
     
 
     componentDidMount() {
-        console.log("props:"+this.props.array)
+        console.log("props:"+this.props.array);
+        console.log("document width"+document.body.clientWidth);
     }
 
     generateArray = () => {
         console.log(this.props.array);
         this.props.dispatch(generateArray());
+        console.log(document.body.clientWidth);
+        //const width = document.body.clientWidth;
+        //console.log("width: " +Math.floor(width / (this.props.array.length * 3)));
     }
 
     render() { 
 
+        const width = Math.floor(document.body.clientWidth / (this.props.array.length * 2.5));
         const array = this.props.array;
+
         return ( 
             <div>
                 <h1>Sorting Visualizer</h1>
                 <button onClick={this.generateArray}>generate array</button>
                 <div className="array-container">
                     {array.map((value, index) => (
-                        <div className="array-bar" key={index} style={{backgroundColor: "red", height: `${value}px`}}>{value}</div>
+                        <div className="array-bar" key={index} style={{backgroundColor: "red", height: `${value}px`, width: `${width}px`}}>{value}</div>
                     ))}
                 </div>
             </div>
